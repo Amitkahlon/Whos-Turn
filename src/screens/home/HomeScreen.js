@@ -7,7 +7,7 @@ const HomeScreen = ({ navigation }) => {
     const [tasks, setTasks] = useState([
         {
             id: 0,
-            name: "Do dishes",
+            name: "לעשות כלים",
             isDone: false
         },
         {
