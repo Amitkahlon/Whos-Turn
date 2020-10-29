@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import Simplebtn from '../components/baseComponents/Simplebtn';
+import Simplebtn from '../../components/baseComponents/Simplebtn'
 
 const SignupScreen = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
-
     return <View style={styles.page}>
         <View style={styles.formContainer}>
             <Text style={styles.logo}>Sign up</Text>
-            <Text style={styles.text}>Username</Text>
+            <Text style={styles.text}>User</Text>
             <TextInput
                 style={styles.input}
                 placeholder="Username..."
@@ -35,7 +34,7 @@ const SignupScreen = () => {
                 value={email}
                 onChangeText={setEmail}
             />
-            <Simplebtn title="Sign In" onPress={() => console.log({username, password, email})} />
+            <Simplebtn title="SignUp" onPress={() => console.log({ username, password, email })} />
         </View>
     </View>
 }
@@ -51,15 +50,17 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'white',
-        width: 300,
-        height: 500,
+        width: "85%",
+        height: "80%",
         borderColor: 'black',
         borderWidth: 1,
         borderRadius: 10
     },
     text: {
-        height: 30,
-        fontWeight: 'bold'
+        height: "6%",
+        fontWeight: 'bold',
+        width: "100%",
+        textAlign: "center"
     },
     logo: {
         textAlign: "center",
@@ -70,14 +71,11 @@ const styles = StyleSheet.create({
     },
     input: {
         width: "80%",
-        height: 50,
+        height: "8%",
         marginBottom: 20,
         justifyContent: "center",
         padding: 10,
         borderWidth: 1
-    },
-    signBtn: {
-
     }
 });
 

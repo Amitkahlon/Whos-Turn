@@ -24,7 +24,7 @@ const [password, setPassword] = useState("");
             value={password}
             onChangeText={text => setPassword(text)}/>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("ForgotPassword")}>
           <Text style={styles.forgot}>Forgot Password?</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.loginBtn} >

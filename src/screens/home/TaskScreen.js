@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 
-const HomeScreen = () => {
+const TaskScreen = () => {
     return <View>
-        <Text>This is Home Component</Text>
+        <Text>This is Example Component</Text>
     </View>
 
 }
 
 const styles = StyleSheet.create({});
 
-export default HomeScreen;
+export default TaskScreen;
