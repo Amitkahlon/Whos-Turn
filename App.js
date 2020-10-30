@@ -97,7 +97,7 @@ const GroupsStackNavigator = () => {
 
 function App() {
   const [isReady, setIsReady] = useState(false);
-  const isLoggedIn = true;
+  const isLoggedIn = false;
 
   //Load fonts once
   useEffect(() => {
