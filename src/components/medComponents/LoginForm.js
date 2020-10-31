@@ -5,8 +5,14 @@ import { useNavigation } from '@react-navigation/native';
 import validator from 'validator';
 import jsonServer from "../../api/jsonServer";
 
+import { useSelector, useDispatch } from 'react-redux';
+import { login } from "../../store/actions";
+
 
 const LoginForm = () => {
+    const isLogged = useSelector(state => state.isLogged);
+    const dispatch = useDispatch();
+
     const navigation = useNavigation();
     const [email, setEmail] = useState({ email: '', isValid: undefined });
     const [password, setPassword] = useState({ password: '', isValid: undefined });
@@ -24,16 +30,20 @@ const LoginForm = () => {
 
     const submit = async () => {
         if (password.isValid && email.isValid) {
-            const login = { email: email.email, password: password.password };
-            const searchString = `?email=${login.email}`
+            const userInput = { email: email.email, password: password.password };
+            const searchString = `?email=${userInput.email}`
             const result = await jsonServer.get(`/users${searchString}`).catch(err => {
+                console.log("error occured")
                 console.log(err);
             })
 
-            console.log(result);
+            const userFromDatabase = result.data[0];
 
-            if (result.status === 200) {
-                
+            if (result.status === 200 && userFromDatabase.password === userInput.password) {
+                delete userInput.password;
+                dispatch(login(userInput));
+            } else {
+                //wrong email and password
             }
         }
     }

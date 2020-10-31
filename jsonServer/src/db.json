@@ -5,6 +5,18 @@
       "userName": "amitkahlon",
       "password": "amit123",
       "email": "amitkahlon4321@gmail.com"
+    },
+    {
+      "name": "AmitKahlon",
+      "password": "amitkahlon4321",
+      "email": "amitkahlon4321@gmail.com",
+      "id": 1
+    },
+    {
+      "name": "amit",
+      "password": "amit123",
+      "email": "amitkahlon4321@gmail.com",
+      "id": 2
     }
   ],
   "groups": [

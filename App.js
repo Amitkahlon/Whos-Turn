@@ -14,6 +14,9 @@ import GroupsScreen from './src/screens/home/GroupsScreen';
 import TaskScreen from './src/screens/home/TaskScreen';
 import CustomHeader from "./src/components/medComponents/CustomHeader";
 import GroupScreen from './src/screens/home/GroupScreen';
+import { store } from "./src/store/store";
+import { Provider, useSelector } from "react-redux";
+
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -62,7 +65,7 @@ const HomeNavigator = () => {
 const HomeStackNavigator = () => {
   return <Stack.Navigator screenOptions={{
     header: (props) => {
-      return <CustomHeader {...props}/>
+      return <CustomHeader {...props} />
     }
   }}>
     <Stack.Screen name="Home" component={HomeScreen} options={{
@@ -70,9 +73,9 @@ const HomeStackNavigator = () => {
         const { options } = props.scene.descriptor;
         options.title = 'Tasks';
         options.headSubtitle = 'Tasks for today';
-        return <CustomHeader {...props}/>
+        return <CustomHeader {...props} />
       }
-    }}/>
+    }} />
     <Stack.Screen name="Task" component={TaskScreen} />
   </Stack.Navigator>
 }
@@ -80,24 +83,26 @@ const HomeStackNavigator = () => {
 const GroupsStackNavigator = () => {
   return <Stack.Navigator screenOptions={{
     header: (props) => {
-      return <CustomHeader {...props}/>
+      return <CustomHeader {...props} />
     }
   }}>
     <Stack.Screen name="Groups" component={GroupsScreen} options={{
       header: props => {
         const { options } = props.scene.descriptor;
-         options.title = 'Groups';
-         options.headSubtitle = 'Groups Of Tasks You Belong To';
-        return <CustomHeader {...props}/>
+        options.title = 'Groups';
+        options.headSubtitle = 'Groups Of Tasks You Belong To';
+        return <CustomHeader {...props} />
       }
-    }}/>
+    }} />
     <Stack.Screen name="Group" component={GroupScreen} />
   </Stack.Navigator>
 }
 
 function App() {
+  const isLogged = useSelector(state => state.isLogged);
+  
   const [isReady, setIsReady] = useState(false);
-  const isLoggedIn = false;
+  // const isLoggedIn = false;
 
   //Load fonts once
   useEffect(() => {
@@ -120,7 +125,7 @@ function App() {
     return (
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          {isLoggedIn ? (
+          {isLogged ? (
             <Stack.Screen name="Home" component={HomeNavigator} />
           ) : (
               <Stack.Screen name="Login" component={LoginNavigator} />
@@ -131,5 +136,13 @@ function App() {
   }
 }
 
-export default App;
+
+export default (props) => {
+  return <Provider store={store}>
+    <App />
+  </Provider>
+}
+
+
+// export default App;
 

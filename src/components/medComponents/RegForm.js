@@ -61,7 +61,7 @@ const RegForm = () => {
         </Item>
 
         <TouchableOpacity style={styles.button} onPress={submit}>
-            <Text style={styles.btnText}>Sign up</Text>
+            <Text style={styles.btnText}>Sign Up</Text>
         </TouchableOpacity>
     </Form>
 }
@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
         marginTop: 30,
     },
     btnText: {
+        fontSize: 20,
         textAlign: 'center',
         color: '#fff',
         fontWeight: 'bold'
