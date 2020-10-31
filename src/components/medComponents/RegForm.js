@@ -2,17 +2,18 @@ import React, { useState, useReducer } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { Container, Header, Content, Form, Item, Input } from 'native-base';
 import validator from 'validator';
+import jsonServer from "../../api/jsonServer";
+import { useNavigation } from '@react-navigation/native';
 
 const RegForm = () => {
-    const [username, setUsername] = useState({ username: '', isValid: undefined });
+    const navigation = useNavigation();
+    const [name, setName] = useState({ name: '', isValid: undefined });
     const [email, setEmail] = useState({ email: '', isValid: undefined });
     const [password, setPassword] = useState({ password: '', isValid: undefined });
 
-
-
-    const onUserTextChange = (text) => {
+    const onNameTextChange = (text) => {
         const valid = validator.isAlphanumeric(text);
-        setUsername({ username: text, isValid: valid })
+        setName({ name: text, isValid: valid })
     }
 
     const onEmailTextChange = (text) => {
@@ -26,18 +27,25 @@ const RegForm = () => {
         setPassword({ password: text, isValid: valid })
     }
 
-    const submit = () => {
-        if(username.isValid && password.isValid && email.isValid){
-            console.log({username: username.username, password: password.password, email: email.email, })
+    const submit = async () => {
+        if (name.isValid && password.isValid && email.isValid) {
+            const newUser = { name: name.name, password: password.password, email: email.email, }
+            const result = await jsonServer.post(`/users`, newUser).catch(err => {
+                console.log(err);
+            })
+
+            if (result.status === 201) {
+                navigation.navigate('SignIn', { registeredUser: { email: newUser.email, password: newUser.password } })
+            }
         }
     }
 
     return <Form style={styles.regForm}>
         <Text style={styles.header}>Register</Text>
 
-        <Item style={styles.item} success={username.isValid} error={username.isValid !== undefined && !username.isValid ? true : false}>
+        <Item style={styles.item} success={name.isValid} error={name.isValid !== undefined && !name.isValid ? true : false}>
             <Input style={styles.textInput} placeholder="Your name..." underlineColorAndroid={'transparent'} placeholderTextColor='#999999'
-                onChangeText={onUserTextChange} />
+                onChangeText={onNameTextChange} />
         </Item>
 
         <Item style={styles.item} success={email.isValid} error={email.isValid !== undefined && !email.isValid ? true : false}>
@@ -48,15 +56,13 @@ const RegForm = () => {
 
         <Item style={styles.item} success={password.isValid} error={password.isValid !== undefined && !password.isValid ? true : false}>
             <Input style={styles.textInput} placeholder="Your Password..."
-                underlineColorAndroid={'transparent'} secureTextEntry={true} placeholderTextColor='#999999' 
-                onChangeText={onPaasswordTextChange}/>
+                underlineColorAndroid={'transparent'} secureTextEntry={true} placeholderTextColor='#999999'
+                onChangeText={onPaasswordTextChange} />
         </Item>
 
-
-        <TouchableOpacity style={styles.button} onPress={() => submit()}>
+        <TouchableOpacity style={styles.button} onPress={submit}>
             <Text style={styles.btnText}>Sign up</Text>
         </TouchableOpacity>
-
     </Form>
 }
 

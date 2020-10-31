@@ -12,7 +12,7 @@ import HomeScreen from './src/screens/home/HomeScreen';
 import ForgotPassword from './src/screens/login/ForgotPasswordScreen';
 import GroupsScreen from './src/screens/home/GroupsScreen';
 import TaskScreen from './src/screens/home/TaskScreen';
-import CustomHeader from "./src/components/baseComponents/CustomHeader";
+import CustomHeader from "./src/components/medComponents/CustomHeader";
 import GroupScreen from './src/screens/home/GroupScreen';
 
 const Stack = createStackNavigator();

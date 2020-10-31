@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "userName": "amitkahlon",
+      "password": "amit123",
+      "email": "amitkahlon4321@gmail.com"
+    }
+  ],
+  "groups": [
+    {
+      "id": 0,
+      "groupName": "kahlons house",
+      "description": "all chores at kahlons house"
+    }
+  ]
+}
