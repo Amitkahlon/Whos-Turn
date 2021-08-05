@@ -6,11 +6,10 @@ import validator from 'validator';
 import jsonServer from "../../api/jsonServer";
 
 import { useSelector, useDispatch } from 'react-redux';
-import { login } from "../../store/actions";
+import { userConnect } from "../../../stateManagment/actions/actions";
 
 
 const LoginForm = () => {
-    const isLogged = useSelector(state => state.isLogged);
     const dispatch = useDispatch();
 
     const navigation = useNavigation();
@@ -29,23 +28,27 @@ const LoginForm = () => {
     }
 
     const submit = async () => {
-        if (password.isValid && email.isValid) {
-            const userInput = { email: email.email, password: password.password };
-            const searchString = `?email=${userInput.email}`
-            const result = await jsonServer.get(`/users${searchString}`).catch(err => {
-                console.log("error occured")
-                console.log(err);
-            })
+        dispatch(userConnect({
+            userName: "AmitKahlon"
+        }))
+        //attempt_login logic
+        // if (password.isValid && email.isValid) {
+        //     const userInput = { email: email.email, password: password.password };
+        //     const searchString = `?email=${userInput.email}`
+        //     const result = await jsonServer.get(`/users${searchString}`).catch(err => {
+        //         console.log("error occured")
+        //         console.log(err);
+        //     })
 
-            const userFromDatabase = result.data[0];
+        //     const userFromDatabase = result.data[0];
 
-            if (result.status === 200 && userFromDatabase.password === userInput.password) {
-                delete userInput.password;
-                dispatch(login(userInput));
-            } else {
-                //wrong email and password
-            }
-        }
+        //     if (result.status === 200 && userFromDatabase.password === userInput.password) {
+        //         delete userInput.password;
+        //         dispatch(userConnect(userInput));
+        //     } else {
+        //         //wrong email and password
+        //     }
+        // }
     }
 
     return <Form style={styles.signForm}>
@@ -70,6 +73,7 @@ const LoginForm = () => {
         <Button rounded style={styles.register} onPress={() => navigation.navigate('Signup')}>
             <Text>Register</Text>
         </Button>
+
     </Form>
 }
 
