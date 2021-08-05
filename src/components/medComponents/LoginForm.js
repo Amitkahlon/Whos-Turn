@@ -6,7 +6,7 @@ import validator from 'validator';
 import jsonServer from "../../api/jsonServer";
 
 import { useSelector, useDispatch } from 'react-redux';
-import { userConnect } from "../../../stateManagment/actions/actions";
+import { userConnect } from "../../stateManagment/actions/actions";
 
 
 const LoginForm = () => {

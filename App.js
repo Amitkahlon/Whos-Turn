@@ -3,7 +3,7 @@ import { AppLoading } from 'expo';
 import { Container, Text } from 'native-base';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
-import configureStore from './stateManagment/store/store';
+import configureStore from './src/stateManagment/store/store';
 import { Provider } from 'react-redux';
 import MainNavigator from './src/navigations/MainNavigator';
 
