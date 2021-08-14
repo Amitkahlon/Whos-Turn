@@ -8,10 +8,13 @@ import {
 } from 'react-native';
 import { Container, Header, Content, Form, Item, Input } from 'native-base';
 import validator from 'validator';
-import jsonServer from '../../api/jsonServer';
+import axios from '../../api/axios';
 import { useNavigation } from '@react-navigation/native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
-const RegForm = () => {
+const RegisterForm = () => {
+  const [date, setDate] = useState(new Date());
+
   const navigation = useNavigation();
   const [name, setName] = useState({ name: '', isValid: undefined });
   const [email, setEmail] = useState({ email: '', isValid: undefined });
@@ -43,12 +46,12 @@ const RegForm = () => {
         password: password.password,
         email: email.email,
       };
-      const result = await jsonServer.post(`/users`, newUser).catch((err) => {
+      const result = await axios.post(`/users`, newUser).catch((err) => {
         console.log(err);
       });
 
       if (result.status === 201) {
-        navigation.navigate('SignIn', {
+        navigation.navigate('Login', {
           registeredUser: { email: newUser.email, password: newUser.password },
         });
       }
@@ -103,6 +106,23 @@ const RegForm = () => {
           onChangeText={onPasswordTextChange}
         />
       </Item>
+      <DateTimePicker
+          // testID="dateTimePicker"
+          // value={date}
+          // mode={mode}
+          // is24Hour={true}
+          // display="default"
+          // onChange={onChange}
+        />
+
+
+      {/* <Item
+        style={styles.item}
+        success={}
+        error={}
+      >
+      </Item> */}
+
 
       <TouchableOpacity style={styles.button} onPress={submit}>
         <Text style={styles.btnText}>Sign Up</Text>
@@ -145,4 +165,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RegForm;
+export default RegisterForm;

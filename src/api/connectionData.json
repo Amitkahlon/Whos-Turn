@@ -1,0 +1,5 @@
+{
+    "baseURL": "http://localhost:36888",
+    "tunnelURL": "http://6d6f9f7816d2.ngrok.io",
+    "authenticate": "/api/User/Authenticate"
+}

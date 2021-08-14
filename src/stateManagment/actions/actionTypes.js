@@ -1,2 +1,4 @@
 export const USER_CONNECT = 'USER_CONNECT';
-export const USER_DISCONNECT = 'USER_DISCONNECT'
+export const USER_DISCONNECT = 'USER_DISCONNECT';
+
+
