@@ -6,11 +6,22 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import { Container, Header, Content, Form, Item, Input } from 'native-base';
+import {
+  Container,
+  Header,
+  Content,
+  Form,
+  Item,
+  Input,
+  Icon,
+} from 'native-base';
 import validator from 'validator';
 import axios from '../../api/axios';
 import { useNavigation } from '@react-navigation/native';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import BaseDatePicker from '../baseComponents/BaseDatePicker';
+import { FontAwesome } from '@expo/vector-icons';
+
+const date = new Date(1598051730000);
 
 const RegisterForm = () => {
   const [date, setDate] = useState(new Date());
@@ -106,23 +117,16 @@ const RegisterForm = () => {
           onChangeText={onPasswordTextChange}
         />
       </Item>
-      <DateTimePicker
-          // testID="dateTimePicker"
-          // value={date}
-          // mode={mode}
-          // is24Hour={true}
-          // display="default"
-          // onChange={onChange}
-        />
 
-
-      {/* <Item
-        style={styles.item}
-        success={}
-        error={}
-      >
-      </Item> */}
-
+      <BaseDatePicker>
+        <Item style={styles.item, styles.calender} picker={false} isFullWidth={true}>
+          {/* <FontAwesome
+            name="calendar"
+            size={24}
+            color="black"
+          /> */}
+        </Item>
+      </BaseDatePicker>
 
       <TouchableOpacity style={styles.button} onPress={submit}>
         <Text style={styles.btnText}>Sign Up</Text>
@@ -162,6 +166,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#fff',
     fontWeight: 'bold',
+  },
+  calender: {
+    alignSelf: 'stretch',
+    height: 40
   },
 });
 
