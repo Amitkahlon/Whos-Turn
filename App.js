@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { AppLoading } from 'expo';
+import AppLoading from 'expo-app-loading';
+console.log("==========" + AppLoading)
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import store from './src/stateManagment/store/store';
@@ -27,15 +28,11 @@ function App() {
     );
   } else {
     return (
+      <Provider store={store}>
         <MainNavigator />
+      </Provider>
     );
   }
 }
 
-export default () => {
-  return (
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );
-};
+export default App;
