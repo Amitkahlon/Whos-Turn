@@ -10,7 +10,7 @@ const RootStack = () => {
 
   return (
       <RootStack.Navigator screenOptions={{ headerShown: false }}>
-        {true ? (
+        {isLogged ? (
           <RootStack.Screen name="App" component={AppNavigator} />
         ) : (
           <RootStack.Screen name="Auth" component={AuthNavigator} />
