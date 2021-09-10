@@ -2,18 +2,21 @@ import React from 'react';
 import HomeScreen from '../screens/home/HomeScreen';
 import TaskScreen from '../screens/home/TaskScreen';
 import CustomHeader from '../components/medComponents/CustomHeader';
-import { Stack } from "./Navigators";
+import { createStackNavigator } from '@react-navigation/stack';
 
-const HomeStacksNavigator = () => {
+
+const HomeNavigator = () => {
+  const HomeStack = createStackNavigator();
+
   return (
-    <Stack.Navigator
+    <HomeStack.Navigator
       screenOptions={{
         header: (props) => {
           return <CustomHeader {...props} />;
         },
       }}
     >
-      <Stack.Screen
+      <HomeStack.Screen
         name="Home"
         component={HomeScreen}
         options={{
@@ -24,9 +27,9 @@ const HomeStacksNavigator = () => {
             return <CustomHeader {...props} />;
           },
         }} />
-      <Stack.Screen name="Task" component={TaskScreen} />
-    </Stack.Navigator>
+      <HomeStack.Screen name="Task" component={TaskScreen} />
+    </HomeStack.Navigator>
   );
 };
 
-export default HomeStacksNavigator;
+export default HomeNavigator;

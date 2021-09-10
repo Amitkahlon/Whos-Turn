@@ -1,12 +1,15 @@
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
-import HomeStacksNavigator from './HomeStackNavigator';
-import GroupsStackNavigator from "./GroupsStackNavigator";
-import { Tab } from "./Navigators";
+import HomeNavigator from './HomeNavigator';
+import GroupNavigator from "./GroupNavigator";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const HomeGroupNavigator = () => {
+
+const AppNavigator = () => {
+  const AppTab = createBottomTabNavigator();
+  
   return (
-    <Tab.Navigator
+    <AppTab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
@@ -28,10 +31,10 @@ const HomeGroupNavigator = () => {
         inactiveTintColor: 'gray',
       }}
     >
-      <Tab.Screen name="Home" component={HomeStacksNavigator} />
-      <Tab.Screen name="Groups" component={GroupsStackNavigator} />
-    </Tab.Navigator>
+      <AppTab.Screen name="Home" component={HomeNavigator} />
+      <AppTab.Screen name="Groups" component={GroupNavigator} />
+    </AppTab.Navigator>
   );
 };
 
-export default HomeGroupNavigator;
+export default AppNavigator;

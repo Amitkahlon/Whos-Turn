@@ -2,18 +2,21 @@ import React from 'react';
 import GroupsScreen from '../screens/home/GroupsScreen';
 import CustomHeader from '../components/medComponents/CustomHeader';
 import GroupScreen from '../screens/home/GroupScreen';
-import { Stack } from '../navigations/Navigators';
+import { createStackNavigator } from '@react-navigation/stack';
 
-const GroupsStackNavigator = () => {
+
+const GroupNavigator = () => {
+  const GroupStack = createStackNavigator(); 
+
   return (
-    <Stack.Navigator
+    <GroupStack.Navigator
       screenOptions={{
         header: (props) => {
           return <CustomHeader {...props} />;
         },
       }}
     >
-      <Stack.Screen
+      <GroupStack.Screen
         name="Groups"
         component={GroupsScreen}
         options={{
@@ -25,9 +28,9 @@ const GroupsStackNavigator = () => {
           },
         }}
       />
-      <Stack.Screen name="Group" component={GroupScreen} />
-    </Stack.Navigator>
+      <GroupStack.Screen name="Group" component={GroupScreen} />
+    </GroupStack.Navigator>
   );
 };
 
-export default GroupsStackNavigator;
+export default GroupNavigator;
