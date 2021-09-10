@@ -4,9 +4,9 @@ import TaskScreen from '../screens/home/TaskScreen';
 import CustomHeader from '../components/medComponents/CustomHeader';
 import { createStackNavigator } from '@react-navigation/stack';
 
+const HomeStack = createStackNavigator();
 
 const HomeNavigator = () => {
-  const HomeStack = createStackNavigator();
 
   return (
     <HomeStack.Navigator

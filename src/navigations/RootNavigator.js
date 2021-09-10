@@ -4,8 +4,9 @@ import AuthNavigator from './AuthNavigator';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useSelector } from "react-redux";
 
-const RootStack = () => {
-  const RootStack = createStackNavigator();
+const RootStack = createStackNavigator();
+
+const RootNavigator = () => {
   const { isLogged } = useSelector((state) => state.login);
 
   return (
@@ -19,4 +20,4 @@ const RootStack = () => {
   );
 };
 
-export default RootStack;
+export default RootNavigator;

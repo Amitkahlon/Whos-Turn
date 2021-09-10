@@ -5,8 +5,9 @@ import GroupNavigator from "./GroupNavigator";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
+const AppTab = createBottomTabNavigator();
+
 const AppNavigator = () => {
-  const AppTab = createBottomTabNavigator();
   
   return (
     <AppTab.Navigator

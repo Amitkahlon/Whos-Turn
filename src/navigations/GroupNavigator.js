@@ -4,9 +4,9 @@ import CustomHeader from '../components/medComponents/CustomHeader';
 import GroupScreen from '../screens/home/GroupScreen';
 import { createStackNavigator } from '@react-navigation/stack';
 
+const GroupStack = createStackNavigator(); 
 
 const GroupNavigator = () => {
-  const GroupStack = createStackNavigator(); 
 
   return (
     <GroupStack.Navigator

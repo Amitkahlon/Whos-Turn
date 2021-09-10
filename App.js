@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler'; //react navigation ask to put in on top of the app.js
 import React, { useState } from 'react';
 import AppLoading from 'expo-app-loading';
 console.log("==========" + AppLoading)

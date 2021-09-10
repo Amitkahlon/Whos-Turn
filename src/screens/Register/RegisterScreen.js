@@ -6,7 +6,7 @@ import Simplebtn from '../../components/baseComponents/Simplebtn';
 const RegisterScreen = () => {
 
     return <Container style={styles.container}>
-        
+        <Text>Hello</Text>
     </Container>
 
 
