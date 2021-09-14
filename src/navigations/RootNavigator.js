@@ -1,6 +1,6 @@
 import React from 'react';
-import AppNavigator from './AppNavigator';
-import AuthNavigator from './AuthNavigator';
+import AppNavigator from "./AppNavigator";
+import AuthNavigator from "./AuthNavigator";
 import { createStackNavigator } from '@react-navigation/stack';
 import { useSelector } from "react-redux";
 

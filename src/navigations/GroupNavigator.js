@@ -1,7 +1,7 @@
 import React from 'react';
-import GroupsScreen from '../screens/home/GroupsScreen';
-import CustomHeader from '../components/medComponents/CustomHeader';
-import GroupScreen from '../screens/home/GroupScreen';
+import GroupsScreen from '../screens/app/GroupsScreen';
+import { CustomHeader } from '_atoms';
+import GroupScreen from '../screens/app/GroupScreen';
 import { createStackNavigator } from '@react-navigation/stack';
 
 const GroupStack = createStackNavigator(); 

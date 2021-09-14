@@ -1,7 +1,10 @@
-import axios from '../api/axios';
-import { authenticate } from '../api/connectionData.json';
+import axios from './axios';
+import connectionData  from './connectionData';
 import store from '../stateManagment/store/store';
 import { userConnect } from '../stateManagment/actions/actions';
+
+const {authenticate} = connectionData;
+console.log(authenticate);
 
 export const attemptLoginStatusEnum = {
   wrongDetails: 0,

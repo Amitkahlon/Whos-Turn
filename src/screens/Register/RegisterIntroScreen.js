@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, KeyboardAvoidingView } from 'react-native';
 import { Container, Content, Form, Item, Input, Label, Button, Text } from 'native-base';
-import Simplebtn from '../../components/baseComponents/Simplebtn';
+import {Simplebtn} from '_atoms';
 
-const RegisterScreen = () => {
+
+const RegisterIntroScreen = () => {
 
     return <Container style={styles.container}>
-        <Text>Hello</Text>
+        
     </Container>
 
 
@@ -21,4 +22,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default RegisterScreen;
+export default RegisterIntroScreen;

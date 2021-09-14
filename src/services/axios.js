@@ -1,5 +1,5 @@
 import axios from 'axios';
-import connectionData from "./connectionData.json"; 
+import connectionData from "./connectionData.js"; 
 
 
 export default axios.create({

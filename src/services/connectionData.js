@@ -1,0 +1,5 @@
+export default {
+  baseURL: 'http://localhost:36888',
+  tunnelURL: 'http://dd1480500978.ngrok.io',
+  authenticate: '/api/User/Authenticate',
+};

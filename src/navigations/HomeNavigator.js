@@ -1,7 +1,7 @@
 import React from 'react';
-import HomeScreen from '../screens/home/HomeScreen';
-import TaskScreen from '../screens/home/TaskScreen';
-import CustomHeader from '../components/medComponents/CustomHeader';
+import HomeScreen from "../screens/app/HomeScreen";
+import TaskScreen from '../screens/app/TaskScreen';
+import {CustomHeader} from '_atoms';
 import { createStackNavigator } from '@react-navigation/stack';
 
 const HomeStack = createStackNavigator();

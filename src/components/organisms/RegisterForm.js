@@ -16,9 +16,9 @@ import {
   Icon,
 } from 'native-base';
 import validator from 'validator';
-import axios from '../../api/axios';
+import { axios } from '_services';
 import { useNavigation } from '@react-navigation/native';
-import BaseDatePicker from '../baseComponents/BaseDatePicker';
+import {BaseDatePicker} from '_atoms';
 import { FontAwesome } from '@expo/vector-icons';
 
 const date = new Date(1598051730000);

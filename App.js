@@ -1,12 +1,12 @@
 import 'react-native-gesture-handler'; //react navigation ask to put in on top of the app.js
 import React, { useState } from 'react';
 import AppLoading from 'expo-app-loading';
-console.log("==========" + AppLoading)
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
-import store from './src/stateManagment/store/store';
+import store from '_store/store';
 import { Provider } from 'react-redux';
-import MainNavigator from './src/navigations/MainNavigator';
+import {MainNavigator} from '_navigations';
+
 
 function App() {
   const [isAppReady, setIsAppReady] = useState(false);

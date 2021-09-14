@@ -1,5 +1,5 @@
 import React from 'react';
-import RegisterScreen from '../screens/Register/RegisterScreen';
+import RegisterIntroScreen from '../screens/Register/RegisterIntroScreen';
 import EmailScreen from '../screens/Register/EmailScreen';
 import NameScreen from '../screens/Register/NameScreen';
 import DateOfBirthScreen from '../screens/Register/DateOfBirthScreen';
@@ -10,19 +10,19 @@ import FinishScreen from '../screens/Register/FinishScreen';
 // import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 
-const RegisterTab = createStackNavigator();
+const RegisterStack = createStackNavigator();
 
 const RegisterNavigator = () => {
     return (
-        <RegisterTab.Navigator>
-          <RegisterTab.Screen name="Intro" component={RegisterScreen} />
-          <RegisterTab.Screen name="Name" component={NameScreen} />
-          <RegisterTab.Screen name="DateOfBirth" component={DateOfBirthScreen} />
-          <RegisterTab.Screen name="Gender" component={GenderScreen} />
-          <RegisterTab.Screen name="Email" component={EmailScreen} />
-          <RegisterTab.Screen name="Pass" component={PassScreen} />
-          <RegisterTab.Screen name="Finish" component={FinishScreen} />
-        </RegisterTab.Navigator>
+        <RegisterStack.Navigator>
+          <RegisterStack.Screen name="Intro" component={RegisterIntroScreen} />
+          <RegisterStack.Screen name="Name" component={NameScreen} />
+          <RegisterStack.Screen name="DateOfBirth" component={DateOfBirthScreen} />
+          <RegisterStack.Screen name="Gender" component={GenderScreen} />
+          <RegisterStack.Screen name="Email" component={EmailScreen} />
+          <RegisterStack.Screen name="Pass" component={PassScreen} />
+          <RegisterStack.Screen name="Finish" component={FinishScreen} />
+        </RegisterStack.Navigator>
       );
     
 }

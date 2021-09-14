@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { Container, Text } from 'native-base';
 import Spinner from 'react-native-loading-spinner-overlay';
-import LoginForm from '../../components/medComponents/LoginForm';
+import { LoginForm } from '_organisms'
 
 const LoginScreen = ({ navigation, route }) => {
   const [loadingSpinner, setLoadingSpinner] = useState({
@@ -16,7 +16,6 @@ const LoginScreen = ({ navigation, route }) => {
         cancelable={true}
         visible={loadingSpinner.loading}
         animation="slide"
-        // visible={true}
         textContent={loadingSpinner.text}
         textStyle={styles.spinnerTextStyle}
         size="large"

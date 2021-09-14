@@ -10,7 +10,7 @@ import {
 } from 'native-base';
 import { useNavigation } from '@react-navigation/native';
 import validator from 'validator';
-import { AttemptLogin, attemptLoginStatusEnum } from '../../BL/LoginLogic';
+import {AttemptLogin, attemptLoginStatusEnum} from '_services';
 
 const LoginForm = ({ loadingSpinner, setLoadingSpinner }) => {
   const navigation = useNavigation();
