@@ -1,13 +1,9 @@
 import React, {useState} from 'react';
-import * as reactNative from 'react-native';
 import { ContinueBtn } from '_atoms';
 import {
   VStack,
   FormControl,
-  Input,
-  Center,
-  Button
-} from 'native-base';
+  Input} from 'native-base';
 
 const NameForm = ({ navigation }) => {
   const [name, setName] = useState({
@@ -48,7 +44,7 @@ const NameForm = ({ navigation }) => {
             onChangeText={(value) => {setText(value);}}
           />
           <FormControl.HelperText _text={{ fontSize: 'xl', color: "white" }}>
-            Name should contain atleast 3 character.
+            Name should contain at least 3 character.
           </FormControl.HelperText>
           <FormControl.ErrorMessage _text={{ fontSize: 'lg', color: "red.500" }}>
             Name is not valid
