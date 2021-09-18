@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
-import { Container, Text } from 'native-base';
+import { Container, Text } from 'old-native-base';
 import Spinner from 'react-native-loading-spinner-overlay';
 import { LoginForm } from '_organisms'
 

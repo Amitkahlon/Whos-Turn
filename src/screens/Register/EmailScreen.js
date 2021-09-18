@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Container } from 'native-base';
+import { Container } from 'old-native-base';
 
 const EmailScreen = () => {
 

@@ -7,7 +7,7 @@ import {
   Label,
   Button,
   Text,
-} from 'native-base';
+} from 'old-native-base';
 import { useNavigation } from '@react-navigation/native';
 import validator from 'validator';
 import {AttemptLogin, attemptLoginStatusEnum} from '_services';

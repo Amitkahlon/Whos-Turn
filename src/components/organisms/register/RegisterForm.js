@@ -14,7 +14,7 @@ import {
   Item,
   Input,
   Icon,
-} from 'native-base';
+} from 'old-native-base';
 import validator from 'validator';
 import { axios } from '_services';
 import { useNavigation } from '@react-navigation/native';

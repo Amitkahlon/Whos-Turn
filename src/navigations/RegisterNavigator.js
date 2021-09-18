@@ -13,18 +13,22 @@ import { createStackNavigator } from '@react-navigation/stack';
 const RegisterStack = createStackNavigator();
 
 const RegisterNavigator = () => {
-    return (
-        <RegisterStack.Navigator>
-          <RegisterStack.Screen name="Intro" component={RegisterIntroScreen} />
-          <RegisterStack.Screen name="Name" component={NameScreen} />
-          <RegisterStack.Screen name="DateOfBirth" component={DateOfBirthScreen} />
-          <RegisterStack.Screen name="Gender" component={GenderScreen} />
-          <RegisterStack.Screen name="Email" component={EmailScreen} />
-          <RegisterStack.Screen name="Pass" component={PassScreen} />
-          <RegisterStack.Screen name="Finish" component={FinishScreen} />
-        </RegisterStack.Navigator>
-      );
-    
-}
+  return (
+    <RegisterStack.Navigator
+      initialRouteName="Intro"
+      screenOptions={({ route, navigation }) => ({
+        gestureEnabled: true,
+      })}
+    >
+      <RegisterStack.Screen name="Intro" component={RegisterIntroScreen} />
+      <RegisterStack.Screen name="Name" component={NameScreen} />
+      <RegisterStack.Screen name="DateOfBirth" component={DateOfBirthScreen} />
+      <RegisterStack.Screen name="Gender" component={GenderScreen} />
+      <RegisterStack.Screen name="Email" component={EmailScreen} />
+      <RegisterStack.Screen name="Pass" component={PassScreen} />
+      <RegisterStack.Screen name="Finish" component={FinishScreen} />
+    </RegisterStack.Navigator>
+  );
+};
 
 export default RegisterNavigator;

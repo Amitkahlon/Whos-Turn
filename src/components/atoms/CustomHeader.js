@@ -9,7 +9,7 @@ import {
   View,
   Text,
   Subtitle,
-} from 'native-base';
+} from 'old-native-base';
 
 const CustomHeader = ({ scene, previous, navigation }) => {
   const { options } = scene.descriptor;

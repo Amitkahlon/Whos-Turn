@@ -1,6 +1,5 @@
 import axios from './axios';
-import connectionData from './connectionData';
-// import * as LoginLogic from './LoginLogic';
+import connectionData from "./connectionData.json";
 
 export * from './LoginLogic';
 

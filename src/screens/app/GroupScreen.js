@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet } from "react-native";
-import { Container, Header, Left, Body, Right, Button, Icon, Title, Text, Subtitle, List, ListItem, Thumbnail } from 'native-base';
+import { Container, Header, Left, Body, Right, Button, Icon, Title, Text, Subtitle, List, ListItem, Thumbnail } from 'old-native-base';
 import {UserCard} from '_atoms';
 
 const GroupScreen = () => {

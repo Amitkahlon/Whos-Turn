@@ -16,6 +16,7 @@ module.exports = {
           _actions: './src/stateManagment/actions',
           _reducers: './src/stateManagment/reducers',
           _store: './src/stateManagment/store',
+          _styles: "./src/styles"
         },
       },
     },

@@ -13,7 +13,6 @@ export const loginReducer = (state = initialState, action) => {
         case USER_DISCONNECT: 
             return { ...state, isLogged: false, loggedUser: initialState.loggedUser }
         case USER_CONNECT:
-            console.log("connect", state)
             return { ...state, isLogged: true, loggedUser: action.user }
         default:
             return state;
