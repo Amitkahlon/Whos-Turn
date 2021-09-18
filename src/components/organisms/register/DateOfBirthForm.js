@@ -2,16 +2,19 @@ import React, { useState, useRef } from 'react';
 import { VStack, FormControl, Input } from 'native-base';
 import { BaseDatePicker } from '_atoms';
 import { ContinueBtn, BaseTimePicker } from '_atoms';
+import validator from "validator";
 
-const DateOfBirthForm = ({navigation}) => {
+const DateOfBirthForm = ({ navigation }) => {
   const [show, setShow] = useState(false);
   const [inputDate, setInputDate] = useState(new Date(1598051730000));
+  const [isValid, setIsValid] = useState(true);
   const dateInput = useRef();
 
   const setVisibility = (status) => {
     setShow(status);
-    if(status === false) { //focus out
-        dateInput.current.blur();
+    if (status === false) {
+      //focus out
+      dateInput.current.blur();
     }
   };
 
@@ -27,6 +30,25 @@ const DateOfBirthForm = ({navigation}) => {
     return day + '/' + month + '/' + year;
   };
 
+  const validate = (date) => {
+    const nowDate = Date.now();
+    if(validator.isDate(date) && date < nowDate){
+      setIsValid(true)
+      return true;
+    }
+    else {
+      setIsValid(false)
+      return false;
+    }
+  }
+
+  const onSubmit = (date) => {
+   let valid = validate(date);
+    if (valid) {
+      navigation.navigate('Gender');
+    }
+  };
+
   return (
     <VStack width="90%" mx={3}>
       <BaseDatePicker
@@ -35,7 +57,7 @@ const DateOfBirthForm = ({navigation}) => {
         show={show}
         setShow={setVisibility}
       />
-      <FormControl isInvalid={false}>
+      <FormControl isInvalid={!isValid}>
         <FormControl.Label _text={{ fontSize: '5xl', color: 'white' }}>
           Birthday
         </FormControl.Label>
@@ -50,8 +72,11 @@ const DateOfBirthForm = ({navigation}) => {
           }}
         />
         <BaseTimePicker />
+        <FormControl.ErrorMessage _text={{ fontSize: 'lg', color: 'error.500' }}>
+          Date is not valid.
+        </FormControl.ErrorMessage>
       </FormControl>
-      <ContinueBtn onPress={() => {navigation.navigate("Gender")}} text="Continue" />
+      <ContinueBtn onPress={() => onSubmit(inputDate)} text="Continue" />
     </VStack>
   );
 };

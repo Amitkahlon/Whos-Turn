@@ -3,9 +3,12 @@ import RegisterForm from "./register/RegisterForm";
 import RegisterIntro from "./register/RegisterIntro";
 import NameForm from "./register/NameForm";
 import DateOfBirthForm from "./register/DateOfBirthForm";
+import GenderForm from "./register/GenderForm";
+import EmailForm from "./register/EmailForm";
 
 
 
 
 
-export { LoginForm, RegisterForm, RegisterIntro, NameForm, DateOfBirthForm }
+
+export { LoginForm, RegisterForm, RegisterIntro, NameForm, DateOfBirthForm, GenderForm, EmailForm }

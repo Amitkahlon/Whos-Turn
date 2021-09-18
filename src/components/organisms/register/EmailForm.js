@@ -1,22 +1,20 @@
 import React, {useState} from 'react';
 import { ContinueBtn } from '_atoms';
-import {
-  VStack,
-  FormControl,
-  Input} from 'native-base';
+import {VStack,FormControl,Input} from 'native-base';
+import validator from 'validator';
 
-const NameForm = ({ navigation }) => {
-  const [name, setName] = useState({
+const EmailForm = ({ navigation }) => {
+  const [email, setEmail] = useState({
     text: "",
     isValid: true
   });
 
   const setText = (text) => {
-    setName({...name, text: text});
+    setEmail({...email, text: text});
   }
 
   const validate = (text) => {
-    if(text.length >= 3){
+    if(validator.isEmail(text)){
       return true;
     }else {
       return false;
@@ -24,8 +22,8 @@ const NameForm = ({ navigation }) => {
   }
 
   const onSubmit = () => {
-    const isValid = validate(name.text);
-    setName({...name, isValid: isValid});
+    const isValid = validate(email.text);
+    setEmail({...email, isValid: isValid});
     if(isValid){
      navigation.navigate("DateOfBirth")
     }
@@ -33,21 +31,21 @@ const NameForm = ({ navigation }) => {
 
   return (
       <VStack width="90%" mx={3}>
-        <FormControl isInvalid={!name.isValid}>
-          <FormControl.Label _text={{ fontSize: "5xl", color: "white" }}>Name</FormControl.Label>
+        <FormControl isInvalid={!email.isValid}>
+          <FormControl.Label _text={{ fontSize: "5xl", color: "white" }}>Email</FormControl.Label>
           <Input
            _light={{
             placeholderTextColor: "blueGray.400",
             color: "blueGray.100"
           }}
-            placeholder="John Doe"
+            placeholder="name@gmail.com"
             onChangeText={(value) => {setText(value);}}
           />
           <FormControl.HelperText _text={{ fontSize: 'xl', color: "white" }}>
-            Name should contain at least 3 character.
+            We will not send you spam or share your information.
           </FormControl.HelperText>
           <FormControl.ErrorMessage _text={{ fontSize: 'lg', color: "red.500" }}>
-            Name is not valid
+            Please provide a email with the correct format, for example: john@bryce.com
           </FormControl.ErrorMessage>
         </FormControl>
     <ContinueBtn onPress={onSubmit} text="Continue"/>
@@ -55,5 +53,5 @@ const NameForm = ({ navigation }) => {
   );
 };
 
-export default NameForm;
+export default EmailForm;
 
