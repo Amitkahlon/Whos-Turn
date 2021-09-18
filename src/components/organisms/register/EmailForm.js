@@ -25,7 +25,7 @@ const EmailForm = ({ navigation }) => {
     const isValid = validate(email.text);
     setEmail({...email, isValid: isValid});
     if(isValid){
-     navigation.navigate("DateOfBirth")
+     navigation.navigate("Password")
     }
   }
 

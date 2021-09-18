@@ -4,7 +4,7 @@ import EmailScreen from '../screens/Register/EmailScreen';
 import NameScreen from '../screens/Register/NameScreen';
 import DateOfBirthScreen from '../screens/Register/DateOfBirthScreen';
 import GenderScreen from '../screens/Register/GenderScreen';
-import PassScreen from '../screens/Register/PassScreen';
+import PasswordScreen from '../screens/Register/PassScreen';
 import FinishScreen from '../screens/Register/FinishScreen';
 
 // import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
@@ -25,7 +25,7 @@ const RegisterNavigator = () => {
       <RegisterStack.Screen name="DateOfBirth" component={DateOfBirthScreen} />
       <RegisterStack.Screen name="Gender" component={GenderScreen} />
       <RegisterStack.Screen name="Email" component={EmailScreen} />
-      <RegisterStack.Screen name="Pass" component={PassScreen} />
+      <RegisterStack.Screen name="Password" component={PasswordScreen} />
       <RegisterStack.Screen name="Finish" component={FinishScreen} />
     </RegisterStack.Navigator>
   );
